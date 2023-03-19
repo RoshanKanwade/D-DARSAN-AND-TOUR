@@ -1,0 +1,27 @@
+package com.app.service;
+
+import java.time.LocalDate;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.app.dto.BookingDto;
+import com.app.pojos.BookingDetails;
+import com.app.repository.HotelRepository;
+@Service 
+@Transactional
+public class BookigServiceImpl implements BookingService {
+
+	
+	@Override
+	public void Book(BookingDto dto) {
+	BookingDetails bookingDetail=new BookingDetails(0,LocalDate.parse( dto.getCheckInDate()), LocalDate.parse(dto.getCheckInDate()),"Booked");
+		
+		
+		
+	}
+
+	
+
+}

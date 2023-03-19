@@ -1,0 +1,13 @@
+package com.app.service;
+
+import java.io.IOException;
+
+import org.springframework.data.jpa.repository.Query;
+
+import com.app.dto.HotelDetailDto;
+
+public interface HomePageService {
+	public  byte[] sampleImage() throws IOException;
+	
+	public HotelDetailDto getHotelByTemplName(String templeName);
+}

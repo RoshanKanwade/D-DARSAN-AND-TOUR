@@ -1,0 +1,85 @@
+package com.app.pojos;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+@Entity
+public class BookingDetails {
+
+	@Id
+	@Column(name="booking_id")
+	 private int bookingId;
+	
+	@Column(name="check_in_date")
+	 private LocalDate checkInDate;
+	
+	
+	@Column(name="check_out_date")
+	 private LocalDate checkOutDate;
+	
+	@Column(name="booking_status")
+	 private String bookingStatus;
+	
+     @OneToOne
+	 private PaymentDetail paymentDetail;
+     @ManyToMany(mappedBy = "roomDetail")
+     private Set<RoomDetail> roomDetails= new HashSet<RoomDetail>();
+
+
+	public BookingDetails(int bookingId, LocalDate checkInDate, LocalDate checkOutDate, String bookingStatus) {
+		super();
+		this.bookingId = bookingId;
+		this.checkInDate = checkInDate;
+		this.checkOutDate = checkOutDate;
+		this.bookingStatus = bookingStatus;
+	}
+
+	@Override
+	public String toString() {
+		return "BookingDetails [bookingId=" + bookingId + ", checkInDate=" + checkInDate + ", checkOutDate="
+				+ checkOutDate + ", bookingStatus=" + bookingStatus + "]";
+	}
+
+	public int getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public LocalDate getCheckInDate() {
+		return checkInDate;
+	}
+
+	public void setCheckInDate(LocalDate checkInDate) {
+		this.checkInDate = checkInDate;
+	}
+
+	public LocalDate getCheckOutDate() {
+		return checkOutDate;
+	}
+
+	public void setCheckOutDate(LocalDate checkOutDate) {
+		this.checkOutDate = checkOutDate;
+	}
+
+	public String getBookingStatus() {
+		return bookingStatus;
+	}
+
+	public void setBookingStatus(String bookingStatus) {
+		this.bookingStatus = bookingStatus;
+	}
+	
+	
+}

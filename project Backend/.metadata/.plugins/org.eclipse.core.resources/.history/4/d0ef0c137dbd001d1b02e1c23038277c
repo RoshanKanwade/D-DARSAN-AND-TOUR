@@ -1,0 +1,10 @@
+package com.app.repository;
+
+import org.springframework.data.jpa.repository.Query;
+
+import com.app.pojos.TempleDetails;
+
+public interface HomeRepository {
+@Query("select t from TempleDetails t where templeId=?1 ")
+	public TempleDetails getHotelBytempleName(int templeId);
+}

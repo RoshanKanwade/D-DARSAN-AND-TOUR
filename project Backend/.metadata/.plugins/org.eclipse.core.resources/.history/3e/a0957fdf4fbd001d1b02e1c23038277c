@@ -1,0 +1,36 @@
+package com.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.dto.HotelregistrationDetails;
+import com.app.dto.RegisteredDto;
+import com.app.exceptionhHandling.UsernameNotFoundException;
+import com.app.pojos.RegistrationDetail;
+import com.app.pojos.User;
+import com.app.service.RegisterService;
+@RestController
+public class RegisterController {
+	@Autowired
+	private RegisterService register;
+	@PostMapping(path = "/home/register", consumes = "application/x-www-form-urlencoded")
+	public String Register( RegisteredDto dto) throws UsernameNotFoundException {
+	RegistrationDetail existingUser = register.findByMobileNo(dto);
+        if (existingUser != null) {
+         return "allrady registerd ";
+        }
+       register.save(dto);
+        return "sucssecfull";
+	}
+	@PostMapping(path = "home/register/hotel",consumes = "application/x-www-form-urlencoded")
+	public String HotelRegister(HotelregistrationDetails dto) {
+		RegistrationDetail existingUser = register.findOwnerByMobileNo(dto);
+        if (existingUser != null) {
+         return "allrady registerd ";
+        }
+       register.save(dto);
+        return "sucssecfull";
+	}
+}

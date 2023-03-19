@@ -1,0 +1,64 @@
+package com.app.pojos;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class User extends BaseEntity{
+@Column(name = "user_name")
+	private String userName;
+@OneToOne (fetch = FetchType.LAZY)
+@JoinColumn(name="unique_id")
+private RegistrationDetail registration;
+@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+private List<PaymentDetail> roomDetails = new ArrayList<>();
+public List<PaymentDetail> getRoomDetails() {
+	return roomDetails;
+}
+
+public void setRoomDetails(List<PaymentDetail> roomDetails) {
+	this.roomDetails = roomDetails;
+}
+
+public User() {
+	super();
+}
+
+public User(String userName) {
+	super();
+	this.userName = userName;
+}
+
+public RegistrationDetail getRegistration() {
+	return registration;
+}
+
+public void setRegistration(RegistrationDetail registration) {
+	this.registration = registration;
+}
+
+public String getUserName() {
+	return userName;
+}
+
+
+public void setUserName(String userName) {
+	this.userName = userName;
+}
+
+@Override
+public String toString() {
+	return "User [userName=" + userName + "]";
+}
+
+
+}

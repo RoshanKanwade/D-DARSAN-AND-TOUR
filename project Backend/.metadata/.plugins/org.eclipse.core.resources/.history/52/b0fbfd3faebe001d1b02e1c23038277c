@@ -1,0 +1,32 @@
+package com.app.config;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.filter.OncePerRequestFilter;
+
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private static final List<String> AUTH_WHITELIST = Arrays.asList(
+        "/D-Darshan/addRoom" // Endpoint to allow without authentication
+    );
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        String path = request.getRequestURI().substring(request.getContextPath().length()).replaceAll("[/]+$", "");
+
+        if (AUTH_WHITELIST.contains(path)) {
+            filterChain.doFilter(request, response);
+        } else {
+            // Perform authentication check
+            // ...
+        }
+    }
+}
+

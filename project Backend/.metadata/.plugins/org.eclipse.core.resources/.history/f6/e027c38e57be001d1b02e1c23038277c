@@ -1,0 +1,12 @@
+package com.app.service;
+
+import java.io.IOException;
+import java.util.List;
+
+import com.app.dto.HotelDetailDto;
+
+public interface HomePageService {
+	public  byte[] sampleImage() throws IOException;
+	
+	public List<HotelDetailDto> getHotelByTemplName(int templeId);
+}

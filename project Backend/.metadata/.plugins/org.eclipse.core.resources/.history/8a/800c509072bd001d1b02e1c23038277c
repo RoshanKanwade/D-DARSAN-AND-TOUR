@@ -1,0 +1,7 @@
+package com.app.repository;
+
+import java.io.IOException;
+
+public interface HomePageService {
+	public  byte[] sampleImage() throws IOException;
+}

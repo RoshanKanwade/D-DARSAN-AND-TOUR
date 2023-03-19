@@ -1,0 +1,24 @@
+package com.app.dto;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class TempleDetailsDto {
+	private long templeId;
+	private String Address;
+	private String state;
+    private String district;
+    public double pincod;
+
+	public byte[] imagePath;
+
+	public TempleDetailsAdo(byte[] imagePath,double num) {
+		super();
+		this.pincod=num;
+		this.imagePath = imagePath;
+		
+	}
+	
+}

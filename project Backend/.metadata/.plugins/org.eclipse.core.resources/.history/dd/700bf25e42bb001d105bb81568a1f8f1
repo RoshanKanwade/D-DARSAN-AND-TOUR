@@ -1,0 +1,46 @@
+package com.app.ado;
+@Entity
+@Table(name = "users")
+public class UserDto {
+	
+	
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
+
+	    @Column(name = "username")
+	    private String username;
+
+	    @Column(name = "password")
+	    private String password;
+
+	    // other fields and methods
+
+	    @Override
+	    public Collection<? extends GrantedAuthority> getAuthorities() {
+	        // return list of user roles as GrantedAuthority
+	        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+	    }
+
+	    @Override
+	    public boolean isAccountNonExpired() {
+	        return true;
+	    }
+
+	    @Override
+	    public boolean isAccountNonLocked() {
+	        return true;
+	    }
+
+	    @Override
+	    public boolean isCredentialsNonExpired() {
+	        return true;
+	    }
+
+	    @Override
+	    public boolean isEnabled() {
+	        return true;
+	    }
+	}
+
+}

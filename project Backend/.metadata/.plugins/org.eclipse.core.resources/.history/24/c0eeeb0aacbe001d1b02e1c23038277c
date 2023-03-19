@@ -1,0 +1,18 @@
+package com.app.config;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // Configure authentication and authorization settings
+        // ...
+        
+        // Add JWT authentication filter
+        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+}

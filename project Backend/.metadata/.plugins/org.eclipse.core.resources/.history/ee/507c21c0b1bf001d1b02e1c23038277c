@@ -1,0 +1,40 @@
+package com.app.service;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters.LocalDateTimeConverter;
+import org.springframework.stereotype.Service;
+
+import com.app.dto.BookingDto;
+import com.app.pojos.BookingDetails;
+import com.app.repository.BookingRepository;
+import com.app.repository.HotelRepository;
+@Service 
+@Transactional
+public class BookigServiceImpl implements BookingService {
+@Autowired
+BookingRepository bookingRepo;
+	
+	@Override
+	public void Book(BookingDto dto) {
+		 SimpleDateFormat dateFormat1 = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss 'GMT'Z (z)");
+		 SimpleDateFormat dateFormat2 = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss 'GMT'Z (z)");
+	        Date date = null;
+	        Date date1 = null;
+	      date = dateFormat1.parse(dto.getCheckInDate());
+	      date1 = dateFormat1.parse( dto.getCheckInDate());
+	BookingDetails bookingDetail=new BookingDetails((long) 0,date,date1,"Booked");
+		bookingDetail.getUser().setId(dto.);
+		bookingDetail.ge
+		bookingRepo.save(bookingDetail);
+		
+	}
+
+	
+
+}

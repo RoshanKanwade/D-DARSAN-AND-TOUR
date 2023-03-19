@@ -1,0 +1,14 @@
+package com.app.dto;
+
+import javax.persistence.Column;
+
+public class HotelDetailDto {
+	
+	private String mobileNo;
+    private String address;
+	 private String image;
+	 private double prize;
+	 private String facility;
+	 private String dining;
+	 private int roomAvailaibilty;
+}

@@ -1,0 +1,8 @@
+package com.app.repository;
+
+import com.app.pojos.TempleDetails;
+
+public interface HomeRepository {
+
+	public TempleDetails getHotelBytempleName(String templeName);
+}

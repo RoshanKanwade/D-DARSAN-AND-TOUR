@@ -1,0 +1,7 @@
+package com.app.service;
+
+import com.app.pojos.RegistrationDetail;
+
+public interface UserService {
+ RegistrationDetail addUserDetails(RegistrationDetail user);
+}

@@ -1,0 +1,63 @@
+package com.app.dto;
+
+import java.sql.Blob;
+
+import javax.persistence.Column;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class RoomDetailDto {
+
+	 private String image;
+		
+		 private double prize;
+		
+			 private int roomAvailaibilty;
+
+			
+
+			public double getPrize() {
+				return prize;
+			}
+
+			public void setPrize(double prize) {
+				this.prize = prize;
+			}
+
+			public int getRoomAvailaibilty() {
+				return roomAvailaibilty;
+			}
+
+			public void setRoomAvailaibilty(int roomAvailaibilty) {
+				this.roomAvailaibilty = roomAvailaibilty;
+			}
+
+			
+
+			public RoomDetailDto() {
+				
+			}
+			
+
+			public RoomDetailDto(String image, double prize, int roomAvailaibilty) {
+				super();
+				this.image = image;
+				this.prize = prize;
+				this.roomAvailaibilty = roomAvailaibilty;
+			}
+
+			public String getImage() {
+				return image;
+			}
+
+			public void setImage(String image) {
+				this.image = image;
+			}
+
+		
+
+		
+
+		
+	
+}

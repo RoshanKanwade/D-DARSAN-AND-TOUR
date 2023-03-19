@@ -1,0 +1,5 @@
+package com.app.ado;
+
+public class UserDto {
+
+}

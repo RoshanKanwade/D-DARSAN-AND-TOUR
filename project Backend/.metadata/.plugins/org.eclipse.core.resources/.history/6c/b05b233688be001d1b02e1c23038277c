@@ -1,0 +1,91 @@
+package com.app.dto;
+
+import java.sql.Blob;
+
+import javax.persistence.Column;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class RoomDetailDto {
+
+	 private MultipartFile image;
+		
+		 private double prize;
+	
+		 private String facility;
+		
+		
+		 private String dining;
+		
+		
+		 private int roomAvailaibilty;
+
+		 private Long hotelId;
+
+		
+
+		
+		public RoomDetailDto() {
+			super();
+		}
+
+		public MultipartFile getImage() {
+			return image;
+		}
+
+		public void setImage(MultipartFile image) {
+			this.image = image;
+		}
+
+		public RoomDetailDto(MultipartFile image, double prize, String facility, String dining, int roomAvailaibilty,
+				Long hotelId) {
+			super();
+			this.image = image;
+			this.prize = prize;
+			this.facility = facility;
+			this.dining = dining;
+			this.roomAvailaibilty = roomAvailaibilty;
+			this.hotelId = hotelId;
+		}
+
+		public double getPrize() {
+			return prize;
+		}
+
+		public void setPrize(double prize) {
+			this.prize = prize;
+		}
+
+		public String getFacility() {
+			return facility;
+		}
+
+		public void setFacility(String facility) {
+			this.facility = facility;
+		}
+
+		public String getDining() {
+			return dining;
+		}
+
+		public void setDining(String dining) {
+			this.dining = dining;
+		}
+
+		public int getRoomAvailaibilty() {
+			return roomAvailaibilty;
+		}
+
+		public void setRoomAvailaibilty(int roomAvailaibilty) {
+			this.roomAvailaibilty = roomAvailaibilty;
+		}
+
+		public Long getHotelId() {
+			return hotelId;
+		}
+
+		public void setHotelId(Long hotelId) {
+			this.hotelId = hotelId;
+		}
+		 
+}

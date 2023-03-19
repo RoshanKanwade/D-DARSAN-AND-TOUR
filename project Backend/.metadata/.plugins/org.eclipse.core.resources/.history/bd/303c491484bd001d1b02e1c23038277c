@@ -1,0 +1,38 @@
+package com.app.service;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.dto.HotelDetailDto;
+
+import com.app.pojos.TempleDetails;
+import com.app.repository.TempleRepository;
+
+@Service 
+@Transactional
+public class HomePageServiceImpl implements HomePageService {
+@Autowired
+private TempleRepository repo;
+
+
+public byte[] sampleImage() throws IOException {
+		
+		return Files.readAllBytes(Paths.get("C:\\Users\\prash\\Downloads\\1431621.jpg"));
+
+	}
+
+	@Override
+	public HotelDetailDto getHotelByTemplName(int templeId) {
+		TempleDetails templeDetail=repo.getHotelBytempleName(templeId);
+		
+		return null;
+	}
+	
+	
+}

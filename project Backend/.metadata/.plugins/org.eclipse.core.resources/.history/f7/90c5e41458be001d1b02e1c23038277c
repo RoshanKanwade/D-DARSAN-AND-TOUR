@@ -1,0 +1,10 @@
+package com.app.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.app.pojos.RegistrationDetail;
+import com.app.pojos.RoomDetail;
+
+public interface RoomRepo extends JpaRepository<RoomDetail, Long> {
+	public RoomDetail  save(RoomDetail roo);
+}

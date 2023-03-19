@@ -1,0 +1,116 @@
+package com.app.pojos;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+@Entity
+public class HotelDetails {
+	@Id
+	private Long hotelId;
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
+	@Column(name="mobile_no")
+	private String mobileNo;
+	@Column(name="address")
+	private String address;
+	@Column(name="license_no")
+	private String licenseNo;
+	
+	@JoinColumn(name="unique_id")
+	private RegistrationDetail registration;
+
+	@Override
+	public String toString() {
+		return "HotelDetails [hotelId=" + hotelId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", mobileNo=" + mobileNo + ", address=" + address + ", licenseNo=" + licenseNo + "]";
+	}
+	
+	public int getHotelId() {
+		return hotelId;
+	}
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
+	}
+	
+	public HotelDetails(String firstName, String lastName, String mobileNo, String licenseNo) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.mobileNo = mobileNo;
+		this.licenseNo = licenseNo;
+	}
+
+	public HotelDetails(int hotelId, String firstName, String lastName, String mobileNo, String address,
+			String licenseNo) {
+		super();
+		this.hotelId = hotelId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.mobileNo = mobileNo;
+		this.address = address;
+		this.licenseNo = licenseNo;
+		
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getMobileNo() {
+		return mobileNo;
+	}
+
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
+	public RegistrationDetail getRegistration() {
+		return registration;
+	}
+
+	public void setRegistration(RegistrationDetail registration) {
+		this.registration = registration;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getLicenseNo() {
+		return licenseNo;
+	}
+	public void setLicenseNo(String licenseNo) {
+		this.licenseNo = licenseNo;
+	}
+	
+	
+	
+	
+	
+	
+	 
+	 
+	
+
+}

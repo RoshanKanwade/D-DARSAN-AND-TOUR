@@ -1,0 +1,21 @@
+package com.app.config;
+
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private static final List<String> AUTH_WHITELIST = Arrays.asList(
+        "/D-Darshan/addRoom" // Endpoint to allow without authentication
+    );
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        String path = request.getRequestURI().substring(request.getContextPath().length()).replaceAll("[/]+$", "");
+
+        if (AUTH_WHITELIST.contains(path)) {
+            filterChain.doFilter(request, response);
+        } else {
+            // Perform authentication check
+            // ...
+        }
+    }
+}
+
